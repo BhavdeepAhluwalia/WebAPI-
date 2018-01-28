@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<movies snn="123-00-1234"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://sample"
+        xsi:schemaLocation="http://sample person.xsd">
+    <movie>
+        <title>Training Day</title>
+        <year>2001/</year>
+        <genre>Action</genre>
+        <actors>
+            <aname>Bhavdeep Ahluwalia</aname>
+            <DateOfBirth> 09-19-1996 </DateOfBirth>
+
+        </actors>
+
+    </movie>
+</movies>
