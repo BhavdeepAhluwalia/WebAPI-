@@ -1,0 +1,71 @@
+Bhavdeep Ahluwalia
+Web API 
+Assignment 1
+
+
+Request Headers:
+============================================================================================================================================
+
+Accept-Encoding: gzip
+Client accepted encodings
+
+Host	https://www.googleapis.com/books/v1/volumes?q={{book_title}}
+Domain name of server
+
+Connection	Keep-Alive	
+Status of connection. Keep Alive means its working
+
+
+============================================================================================================================================
+Response Headers:
+============================================================================================================================================
+Status: 200 OK 
+Tells the status of the request returned from the server. Can vary based on current standard. 200 means all is well.  
+
+Alt-Svc→hq=":443"; ma=2592000; quic=51303431; quic=51303339; quic=51303338; quic=51303337; quic=51303335,quic=":443"; ma=2592000; v="41,39,38,37,35"
+This is for the custom header 
+
+Cache-Control →private, max-age=0, must-revalidate, no-transform
+Tells all caching mechanisms from server to client whether they can cache the object (in seconds). 
+
+Content-Encoding →gzip
+Tells what kind of encoding is sent in content to the user. Here it is gzip which is compressed using gzip standard. 
+
+Content-Type →application/json; charset=UTF-8 
+Tells which type of data is sent to the server (text, json, xml, etc). We use UTF-8 (1byte/character) and expect JSON data back 
+
+Date →Sun, 04 Feb 2018 03:00:38 GMT
+Tells the time stamped current data and time 
+
+ETag →"f6QLsd8inUgRKJVNBqJ8xHnPb0w/XU_WSmc6gBpnoP8DhjzIk2IHtSg"
+Generated to determine computer being used by a hash and identifying variables
+
+Expires →Sun, 04 Feb 2018 03:00:38 GMT
+Server generates a time frame for how long this response is valid. Date is same as time 
+
+Server →GSE
+Client can determine the kind of server is run on host
+
+Transfer-Encoding →chunked
+Safely transfers the entities to client (chunked, deflate, gzip, compress, identity)
+
+Vary →Origin // Vary-> xOrigin
+Tells downstream proxies how to match future request headers to decide whether the cached response can be used instead of fetching a new one
+
+x-content-type-options: nosniff
+Custom header, defines extra content types
+
+x-frame-options: SAMEORIGIN
+Custom Headers 
+
+x-xss-protection: 1; mode-block
+Custom Header
+
+
+
+
+
+
+
+
+	

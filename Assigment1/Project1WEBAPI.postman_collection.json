@@ -1,0 +1,181 @@
+{
+	"info": {
+		"name": "Project1WEBAPI",
+		"_postman_id": "5f2a7c71-0394-93ec-2c0b-dd965d432334",
+		"description": "Project 1 WEB API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Request1",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "a11e288a-1bde-4fc7-982c-9fa4eecc5bf4",
+						"type": "text/javascript",
+						"exec": [
+							"pm.environment.set(\"book_title\", \"Turing\");"
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "192f637a-2b8a-4500-89d6-62a08981542e",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"var id = jsonData.items[0].id",
+							"postman.setEnvironmentVariable(\"id\", id); ",
+							"tests [\"Response Status 200\"] = responseCode.code === 200;",
+							"var count = jsonData.totalItems; ",
+							"var incorrect = false; ",
+							"",
+							"for (var a = 0; a < count; a++) ",
+							"{ ",
+							"    if (jsonData.items[a] === undefined) {",
+							"        ",
+							"    }",
+							"    else {",
+							"    ",
+							"    var title = jsonData.items[a].volumeInfo.title; ",
+							"    var patt = /turing/i; ",
+							"    var res = patt.test(title);",
+							"    console.log(res);",
+							"    }",
+							"    ",
+							"    if (res === false) { ",
+							"        incorrect = true;",
+							"    }",
+							"",
+							"    ",
+							"",
+							" ",
+							"",
+							"}",
+							"",
+							"tests [\"titles have turing\"] = incorrect === false;",
+							"tests [\"book title\"] = (res === true); ",
+							"",
+							"tests [\"Contains 'Turing'\"] = responseBody.has(\"Turing\");",
+							"",
+							"",
+							"var issues = JSON.parse(responseBody);",
+							"var closedState = postman.getEnvironmentVariable(\"closed_state\");",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "title",
+						"value": "turing"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "this is title",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "id",
+							"value": "this is id",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "body",
+							"value": "this is body",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://www.googleapis.com/books/v1/volumes?q={{book_title}}",
+					"protocol": "https",
+					"host": [
+						"www",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"books",
+						"v1",
+						"volumes"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "{{book_title}}",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Request2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3b0f1887-2d3f-4ccf-a6ed-c13fa45f3335",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"var title = jsonData.items[0].volumeInfo.title; ",
+							"var id = jsonData.items[0].id",
+							"postman.getEnvironmentVariable(\"id\", id); ",
+							"tests [\"Response Status 200\"] = responseCode.code === 200;",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://www.googleapis.com/books/v1/volumes/?q={{id}}",
+					"protocol": "https",
+					"host": [
+						"www",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"books",
+						"v1",
+						"volumes",
+						""
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "{{id}}",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
