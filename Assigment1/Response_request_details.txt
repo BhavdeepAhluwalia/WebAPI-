@@ -1,4 +1,4 @@
-Bhavdeep Ahluwalia
+﻿Bhavdeep Ahluwalia
 Web API 
 Assignment 1
 
@@ -6,14 +6,14 @@ Assignment 1
 Request Headers:
 ============================================================================================================================================
 
-Accept-Encoding: gzip
-Client accepted encodings
 
-Host	https://www.googleapis.com/books/v1/volumes?q={{book_title}}
-Domain name of server
-
-Connection	Keep-Alive	
-Status of connection. Keep Alive means its working
+title:"turing" --> our title parameter
+cache-control:"no-cache"-->Tells all caching mechanisms from server to client whether they can cache the object (in seconds).
+postman-token:"aaa47ed2-ff2d-49a2-b56d-8d710f4eedc3"--> used for authorization
+user-agent:"PostmanRuntime/7.1.1"-->Postman Stamp and Version
+accept:"*/*"-->
+host:"www.googleapis.com"--> domain name of server, our host
+accept-encoding:"gzip, deflate"--> client accepted encodings
 
 
 ============================================================================================================================================
